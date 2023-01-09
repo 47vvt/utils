@@ -3,7 +3,6 @@ python get-pip.py
 pip install nodejs
 pip install npm
 pip install algorithmx
-exit()
 
 jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
 jupyter lab build
