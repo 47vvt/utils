@@ -4,9 +4,5 @@ pip install nodejs
 pip install npm
 pip install algorithmx
 pip install jupyter
-
-jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
-jupyter lab build
-
 code --install-extension ms-python.python
 code --install-extension ms-toolsai.jupyter
