@@ -72,5 +72,4 @@ Start-Process -Filepath "./MSEdgeRedirect.exe"
 # Just some test...
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0 -Type Dword -Force
 
-
-Restart-Computer
+s off
