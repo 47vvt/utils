@@ -12,3 +12,4 @@ pip install pandas
 pip install jupyter
 code --install-extension ms-python.python
 code --install-extension ms-toolsai.jupyter
+a
