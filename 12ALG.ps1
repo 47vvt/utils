@@ -1,3 +1,6 @@
+
+# installs a bunch of stuff to make python work for VCE algo HESS
+
 Invoke-WebRequest -Uri https://bootstrap.pypa.io/get-pip.py -OutFile .\get-pip.py
 python get-pip.py
 pip install nodejs
