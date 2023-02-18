@@ -1,4 +1,4 @@
-
+# x.gd/overthinking
 set-location $env:userprofile\music
 mkdir "youre all alone"
 set-location "$env:userprofile\music\youre all alone"
