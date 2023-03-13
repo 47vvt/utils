@@ -13,7 +13,4 @@ winget install -y Microsoft.WindowsCamera_8wekyb3d8bbwe Microsoft.ScreenSketch_8
 scoop install brave vscode python spotify discord neovim # apps
 
 
-Invoke-WebRequest x.gd/12alga | Invoke-Expression # algo
-
-
-s off
+Invoke-WebRequest x.gd/12alga | Invoke-Expression # algo
