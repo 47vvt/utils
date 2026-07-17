@@ -86,7 +86,7 @@ function Invoke-BrokerUpload {
     param([string]$Serial, [string]$Hash)
     $payload = @{ serialNumber = $Serial; hardwareHash = $Hash; groupTag = $GroupTag } | ConvertTo-Json
     try {
-        $resp = Invoke-WebRequest -Method Post -Uri $FunctionURL -ContentType 'application/json' -Body $payload -ErrorAction Stop
+        $resp = Invoke-WebRequest -UseBasicParsing -Method Post -Uri $FunctionURL -ContentType 'application/json' -Body $payload -ErrorAction Stop
         $status = $null
         try { $status = ($resp.Content | ConvertFrom-Json).status } catch {}
         [pscustomobject]@{ HttpStatus = [int]$resp.StatusCode; RawBody = $resp.Content; Status = $status }
