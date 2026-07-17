@@ -59,6 +59,16 @@ function Assert-Admin {
     }
 }
 
+function Get-SHA256Hex([string]$Text) {
+    $sha256 = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        $bytes = $sha256.ComputeHash([Text.Encoding]::UTF8.GetBytes($Text))
+        -join ($bytes | ForEach-Object { $_.ToString('x2') })
+    } finally {
+        $sha256.Dispose()
+    }
+}
+
 function Get-DeviceHashSample {
     $serial = (Get-CimInstance -ClassName Win32_BIOS -ErrorAction Stop).SerialNumber
     $hash   = (Get-CimInstance -Namespace 'root/cimv2/mdm/dmmap' -ClassName 'MDM_DevDetail_Ext01' `
@@ -67,7 +77,7 @@ function Get-DeviceHashSample {
         Timestamp  = Get-Date
         Serial     = $serial
         Hash       = $hash
-        HashSHA256 = [Convert]::ToHexString([System.Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($hash)))
+        HashSHA256 = Get-SHA256Hex $hash
         HashLength = $hash.Length
     }
 }
