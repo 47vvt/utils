@@ -185,6 +185,7 @@ switch ($Mode) {
                 HashSHA256 = $s.HashSHA256
                 HttpStatus = $result.HttpStatus
                 Status     = $result.Status
+                RawBody    = $result.RawBody
             }
 
             $color = switch ($result.Status) { 'exists' {'Yellow'} 'uploaded' {'Green'} default {'Red'} }
@@ -193,7 +194,9 @@ switch ($Mode) {
         }
 
         Write-Host "`n--- Summary ---" -ForegroundColor Cyan
-        $log | Format-Table -AutoSize
+        $log | Format-Table Run, Timestamp, Serial, HashSHA256, HttpStatus, Status -AutoSize
+        Write-Host "`n--- Raw responses/errors per run ---" -ForegroundColor Cyan
+        foreach ($entry in $log) { Write-Host "Run $($entry.Run): $($entry.RawBody)" -ForegroundColor Gray }
 
         $distinctHashes = ($log.HashSHA256 | Select-Object -Unique).Count
         $distinctStatus = $log.Status | Select-Object -Unique
